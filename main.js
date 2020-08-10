@@ -1,40 +1,71 @@
-let formElement = document.querySelector(".js-form");
+
 let amountElement = document.querySelector(".js-amount");
-let currencyElement = document.querySelector(".js-currency");
 let resultElement = document.querySelector(".js-result");
 
+let currencyFirstElement = document.querySelector(".js-currency-first");
+let currencySecondElement = document.querySelector(".js-currency-second");
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
-    
+    let ratePLN = 1;
     let rateWON = 0.003147;
     let rateJUAN = 0.5359;
     let rateJEN = 0.035324;
     let rateRINGGIT = 0.8902;
     let rateBAHT = 0.1197;
 
-    switch (currency) {
-        case "won":
-            result = amount / rateWON;
-            break;
-        case "juan":
-            result = amount / rateJUAN;
-            break;
-        case "jen":
-            result = amount / rateJEN;
-            break;
-        case "ringgit":
-            result = amount / rateRINGGIT;
-            break;
-        case "baht":
-            result = amount / rateBAHT;
-            break;
-    }
 
-    resultElement.innerHTML = `${amount.toFixed(2)} PLN = ${(result.toFixed(2)).toLocaleString()} ${currency}`;
+    let exchange = () => {
+        switch (currencyFirstElement.value) {
+            case "PLN":
+                FirstCurrencyType = ratePLN;
+                break;
+            case "KRW":
+                FirstCurrencyType = rateWON;
+                break;
+            case "CNY":
+                FirstCurrencyType = rateJUAN;
+                break;
+            case "JPY":
+                FirstCurrencyType = rateJEN;
+                break;
+            case "MYR":
+                FirstCurrencyType = rateRINGGIT;
+                break;
+            case "THB":
+                FirstCurrencyType = rateBAHT;
+                break;
+        }
 
-    
-});
+        switch (currencySecondElement.value) {
+            case "PLN":
+                SecondCurrencyType = ratePLN;
+                CurrencyName = "PLN";
+                break;
+            case "KRW":
+                SecondCurrencyType = 1 / rateWON;
+                CurrencyName = "KRW";
+                break;
+            case "CNY":
+                SecondCurrencyType = 1 / rateJUAN;
+                CurrencyName = "CNY";
+                break;
+            case "JPY":
+                SecondCurrencyType = 1 / rateJEN;
+                CurrencyName = "JPY";
+                break;
+            case "MYR":
+                SecondCurrencyType = 1 / rateRINGGIT;
+                CurrencyName = "MYR";
+                break;
+            case "THB":
+                SecondCurrencyType = 1 / rateBAHT;
+                CurrencyName = "THB";
+                break;
+        }
+
+        result = (amountElement.value * FirstCurrencyType * SecondCurrencyType).toFixed(2);
+        resultElement.innerText = `${result} ${CurrencyName}`;
+    };
+
+    currencyFirstElement.addEventListener("input", exchange);
+    currencySecondElement.addEventListener("input", exchange);
+    amountElement.addEventListener("input", exchange);

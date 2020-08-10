@@ -18,30 +18,44 @@
         <form class="form js-form">
             <h1 class="form__header">Wschodni kalkulator walutowy</h1>
             <div class="inputs__container">
-            <p>
-                <label class="form__label">
-                    <span class="form__labelText">Kwota w zł:</span> <input required class="form__field js-amount" type="number"
-                        name="amount" autofocus>
-                </label>
-            </p>
-            
-            <p>
-                <label class="form__label">
-                    <span class="form__labelText">Wybierz walutę:</span> 
-                    <select class="js-currency form__field form__field--wider" name="chooseTheCurrency">
-                        <option value="won">Won poludniowokoreański</option>
-                        <option value="juan">Juan chiński</option>
-                        <option value="jen">Jen japoński</option>
-                        <option value="ringgit">Ringgit malezyjski</option>
-                        <option value="baht">Baht tajlandzki</option>
-                    </select>
-                </label>
-            </p>
-        </div>
+                <p>
+                    <label class="form__label">
+                        <span class="form__labelText">Kwota w zł:</span> <input required class="form__field js-amount"
+                            type="number" name="amount" autofocus>
+                    </label>
+                </p>
+
+                <p>
+                    <label class="form__label">
+                        <span class="form__labelText">Mam:</span>
+                        <select class="js-currency-first form__field form__field--wider" name="chooseTheCurrency">
+                            <option value="PLN">PLN</option>
+                            <option value="KRW">Won poludniowokoreański</option>
+                            <option value="CNY">Juan chiński</option>
+                            <option value="JPY">Jen japoński</option>
+                            <option value="MYR">Ringgit malezyjski</option>
+                            <option value="THB">Baht tajlandzki</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label class="form__label">
+                        <span class="form__labelText">Chcę otrzymać:</span>
+                        <select class="js-currency-second form__field form__field--wider" name="chooseTheCurrency">
+                            <option value="PLN">PLN</option>
+                            <option value="KRW">Won poludniowokoreański</option>
+                            <option value="CNY">Juan chiński</option>
+                            <option value="JPY">Jen japoński</option>
+                            <option value="MYR">Ringgit malezyjski</option>
+                            <option value="THB">Baht tajlandzki</option>
+                        </select>
+                    </label>
+                </p>
+            </div>
             <p class="button__container">
                 <button class="button">Przelicz</button>
             </p>
-        
+
 
             <p class="form__result"><span class="js-result"></span></p>
         </form>
