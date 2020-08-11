@@ -19,6 +19,7 @@ let amountElementValue = amountElement.value;
     let rateHONG = 0.4825;
     let rateRUPIA = 0.0002547;
     let rateRIEL = 0.00091;
+    let rateKIP = 0.00041;
 
 
     let exchange = () => {
@@ -63,6 +64,14 @@ let amountElementValue = amountElement.value;
                 FirstCurrencyType = rateRUPIA;
                 FirstCurrencyName = "IDR";
                 break;
+            case "KHR":
+                FirstCurrencyType = rateRIEL;
+                FirstCurrencyName = "KHR";
+                break;
+            case "LAK":
+                FirstCurrencyType = rateKIP;
+                FirstCurrencyName = "LAK";
+                break;
         }
 
         switch (currencySecondElement.value) {
@@ -105,6 +114,14 @@ let amountElementValue = amountElement.value;
             case "IDR":
                 SecondCurrencyType = rateRUPIA;
                 CurrencyName = "IDR";
+                break;
+            case "KHR":
+                SecondCurrencyType = rateRIEL;
+                CurrencyName = "KHR";
+                break;
+            case "LAK":
+                SecondCurrencyType = rateKIP;
+                CurrencyName = "LAK";
                 break;
         }
 
