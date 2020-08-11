@@ -9,11 +9,16 @@ let amountElementValue = amountElement.value;
 
 
     let ratePLN = 1;
-    let rateWON = 0.003147;
-    let rateJUAN = 0.5359;
-    let rateJEN = 0.035324;
-    let rateRINGGIT = 0.8902;
-    let rateBAHT = 0.1197;
+    let rateWON = 0.003156;
+    let rateJUAN = 0.5380;
+    let rateJEN = 0.035237;
+    let rateRINGGIT = 0.8907;
+    let rateBAHT = 0.1203;
+    let ratePESO = 0.0763;
+    let rateSINGAPUR = 0.0763;
+    let rateHONG = 0.4825;
+    let rateRUPIA = 0.0002547;
+    let rateRIEL = 0.00091;
 
 
     let exchange = () => {
@@ -42,6 +47,22 @@ let amountElementValue = amountElement.value;
                 FirstCurrencyType = rateBAHT;
                 FirstCurrencyName = "THB";
                 break;
+            case "PHP":
+                FirstCurrencyType = ratePESO;
+                FirstCurrencyName = "PHP";
+                break;
+            case "SGD":
+                FirstCurrencyType = rateSINGAPUR;
+                FirstCurrencyName = "SGD";
+                break;
+            case "HKD":
+                FirstCurrencyType = rateHONG;
+                FirstCurrencyName = "HKD";
+                break;
+            case "IDR":
+                FirstCurrencyType = rateRUPIA;
+                FirstCurrencyName = "IDR";
+                break;
         }
 
         switch (currencySecondElement.value) {
@@ -68,6 +89,22 @@ let amountElementValue = amountElement.value;
             case "THB":
                 SecondCurrencyType = rateBAHT;
                 CurrencyName = "THB";
+                break;
+            case "PHP":
+                SecondCurrencyType = ratePESO;
+                CurrencyName = "PHP";
+                break;
+            case "SGD":
+                SecondCurrencyType = rateSINGAPUR;
+                CurrencyName = "SGD";
+                break;
+            case "HKD":
+                SecondCurrencyType = rateHONG;
+                CurrencyName = "HKD";
+                break;
+            case "IDR":
+                SecondCurrencyType = rateRUPIA;
+                CurrencyName = "IDR";
                 break;
         }
 
