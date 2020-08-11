@@ -67,6 +67,7 @@ body {
 
   .form__result {
     width:300px;
+    font-size: 20px;
   }
   .form {
     width: 100%;
