@@ -129,8 +129,8 @@
     var t = event.target;
     if (t.hasAttribute("maxlength")) {
       t.value = t.value.slice(0, t.getAttribute("maxlength"));
-    }
-  }
+    };
+  };
 
   const init = () => {
 
