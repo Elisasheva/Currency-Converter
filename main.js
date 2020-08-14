@@ -4,7 +4,7 @@
   const amountElement = document.querySelector(".js-amount");
   const resultElement = document.querySelector(".js-result");
 
-  const exchangeAndCalculate = () => {
+  const exchangeAndCalculateResult = () => {
 
     const amount = amountElement.value;
     const firstCurrency = currencyFirstElement.value;
@@ -126,8 +126,8 @@
     }
 
     const result = ((amount * FirstCurrencyType) / SecondCurrencyType).toLocaleString();
-    resultElement.innerText = `${amount} ${FirstCurrencyName} = ${result} ${CurrencyName}`;
-
+    updateResultText(amount, FirstCurrencyName, result, CurrencyName);
+  
   };
 
   const enforceMaxLength = (event) => {
@@ -137,11 +137,14 @@
     };
   };
 
-  const init = () => {
+  const updateResultText = (amount, FirstCurrencyName, result, CurrencyName) => {
+    resultElement.innerText = `${amount} ${FirstCurrencyName} = ${result} ${CurrencyName}`;
+  }
 
-    currencyFirstElement.addEventListener("input", exchangeAndCalculate);
-    currencySecondElement.addEventListener("input", exchangeAndCalculate);
-    amountElement.addEventListener("input", exchangeAndCalculate);
+  const init = () => {
+    currencyFirstElement.addEventListener("input", exchangeAndCalculateResult);
+    currencySecondElement.addEventListener("input", exchangeAndCalculateResult);
+    amountElement.addEventListener("input", exchangeAndCalculateResult);
     document.body.addEventListener("input", enforceMaxLength);
   };
 
