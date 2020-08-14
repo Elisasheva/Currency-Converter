@@ -1,25 +1,25 @@
 
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
+const amountElement = document.querySelector(".js-amount");
+const resultElement = document.querySelector(".js-result");
 
-let currencyFirstElement = document.querySelector(".js-currency-first");
-let currencySecondElement = document.querySelector(".js-currency-second");
+const currencyFirstElement = document.querySelector(".js-currency-first");
+const currencySecondElement = document.querySelector(".js-currency-second");
 
-let amountElementValue = amountElement.value;
+const amountElementValue = amountElement.value;
 
 
-    let ratePLN = 1;
-    let rateWON = 0.003156;
-    let rateJUAN = 0.5380;
-    let rateJEN = 0.035237;
-    let rateRINGGIT = 0.8907;
-    let rateBAHT = 0.1203;
-    let ratePESO = 0.0763;
-    let rateSINGAPUR = 0.0763;
-    let rateHONG = 0.4825;
-    let rateRUPIA = 0.0002547;
-    let rateRIEL = 0.00091;
-    let rateKIP = 0.00041;
+    const ratePLN = 1;
+    const rateWON = 0.003156;
+    const rateJUAN = 0.5380;
+    const rateJEN = 0.035237;
+    const rateRINGGIT = 0.8907;
+    const rateBAHT = 0.1203;
+    const ratePESO = 0.0763;
+    const rateSINGAPUR = 0.0763;
+    const rateHONG = 0.4825;
+    const rateRUPIA = 0.0002547;
+    const rateRIEL = 0.00091;
+    const rateKIP = 0.00041;
 
 
     let exchange = () => {
@@ -125,7 +125,7 @@ let amountElementValue = amountElement.value;
                 break;
         }
 
-        let amountElementValue = amountElement.value;
+        const amountElementValue = amountElement.value;
 
         result = (amountElement.value * FirstCurrencyType / SecondCurrencyType).toLocaleString();
         resultElement.innerText = `${amountElementValue} ${FirstCurrencyName} = ${result} ${CurrencyName}`;
