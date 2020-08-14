@@ -1,5 +1,5 @@
 {
-  let exchange = () => {
+  const exchange = () => {
       
     const ratePLN = 1;
     const rateWON = 0.003156;
@@ -118,7 +118,8 @@
     
     const result = ((amountElement.value * FirstCurrencyType) /SecondCurrencyType).toLocaleString();
     resultElement.innerText = `${amountElement.value} ${FirstCurrencyName} = ${result} ${CurrencyName}`;
-  };
+    
+    };
 
   const amountElement = document.querySelector(".js-amount");
   const resultElement = document.querySelector(".js-result");
@@ -126,11 +127,9 @@
   const currencyFirstElement = document.querySelector(".js-currency-first");
   const currencySecondElement = document.querySelector(".js-currency-second");
 
-
   currencyFirstElement.addEventListener("input", exchange);
   currencySecondElement.addEventListener("input", exchange);
   amountElement.addEventListener("input", exchange);
-
 
   function enforce_maxlength(event) {
     var t = event.target;
