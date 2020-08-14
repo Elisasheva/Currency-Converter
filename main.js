@@ -2,8 +2,14 @@
   const currencyFirstElement = document.querySelector(".js-currency-first");
   const currencySecondElement = document.querySelector(".js-currency-second");
   const amountElement = document.querySelector(".js-amount");
+  const resultElement = document.querySelector(".js-result");
 
-  const exchange = () => {
+  const exchangeAndCalculate = () => {
+
+    const amount = amountElement.value;
+    const firstCurrency = currencyFirstElement.value;
+    const secondCurrency = currencySecondElement.value;
+
     const ratePLN = 1;
     const rateWON = 0.003156;
     const rateJUAN = 0.538;
@@ -17,7 +23,7 @@
     const rateRIEL = 0.00091;
     const rateKIP = 0.00041;
 
-    switch (currencyFirstElement.value) {
+    switch (firstCurrency) {
       case "PLN":
         FirstCurrencyType = ratePLN;
         FirstCurrencyName = "PLN";
@@ -68,7 +74,7 @@
         break;
     }
 
-    switch (currencySecondElement.value) {
+    switch (secondCurrency) {
       case "PLN":
         SecondCurrencyType = ratePLN;
         CurrencyName = "PLN";
@@ -119,13 +125,12 @@
         break;
     }
 
-    const resultElement = document.querySelector(".js-result");
+    const result = ((amount * FirstCurrencyType) / SecondCurrencyType).toLocaleString();
+    resultElement.innerText = `${amount} ${FirstCurrencyName} = ${result} ${CurrencyName}`;
 
-    const result = ((amountElement.value * FirstCurrencyType) / SecondCurrencyType).toLocaleString();
-    resultElement.innerText = `${amountElement.value} ${FirstCurrencyName} = ${result} ${CurrencyName}`;
   };
 
-  function enforce_maxlength(event) {
+  const enforceMaxLength = (event) => {
     var t = event.target;
     if (t.hasAttribute("maxlength")) {
       t.value = t.value.slice(0, t.getAttribute("maxlength"));
@@ -134,10 +139,10 @@
 
   const init = () => {
 
-    currencyFirstElement.addEventListener("input", exchange);
-    currencySecondElement.addEventListener("input", exchange);
-    amountElement.addEventListener("input", exchange);
-    document.body.addEventListener("input", enforce_maxlength);
+    currencyFirstElement.addEventListener("input", exchangeAndCalculate);
+    currencySecondElement.addEventListener("input", exchangeAndCalculate);
+    amountElement.addEventListener("input", exchangeAndCalculate);
+    document.body.addEventListener("input", enforceMaxLength);
   };
 
   init();
