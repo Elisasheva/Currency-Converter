@@ -15,3 +15,6 @@ I present my simple currency converter with currencies from all over the east pa
 - Indonesian Rupiah
 - Cambodian Riel
 - Lao Kip
+
+## Screenshot
+![Screenshot](https://i.ibb.co/jhR2bdr/currency.jpg)
